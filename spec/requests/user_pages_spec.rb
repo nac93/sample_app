@@ -36,7 +36,16 @@ describe "User pages" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
     end
-  end
 
+
+    describe "edit" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        sign_in user
+        visit edit_user_path(user)
+      end
+    end
+
+  end
 
 end
